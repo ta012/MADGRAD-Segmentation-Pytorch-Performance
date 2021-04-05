@@ -16,7 +16,8 @@
 
 
 
-
+##### Setup Conda Env
+    - conda env create -f env.yml
 
 ##### VOC2012 Segmentation Training 
 
