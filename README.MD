@@ -1,6 +1,7 @@
-## MADGRAD-Segmentation-Pytorch-Performance
+# MADGRAD-Segmentation-Pytorch-Performance
     Compare the performance of MADGRAD against Adam and SGD for segmentation model training.
 
+## Pascal VOC2012 Segmentation
 ### CrossEntropyLoss
 
 <img  src="figures/crossentropyloss_SGD.png" width="35%">
