@@ -104,7 +104,7 @@ writer = SummaryWriter(args['tensorboard_logs_dir'])
 #### load the custom model(according to choice on maxpool)
 
 
-from customNet import CustomNet
+from CustomUNet import CustomUNet
 
 
 
@@ -294,7 +294,7 @@ if __name__ == "__main__":
 
 
 	
-	model = CustomNet(args['num_class'],args['two_pow']).to(device)
+	model = CustomUNet(args['num_class'],args['two_pow']).to(device)
 
 
 	if args['initialization'] == 'xavier':

@@ -52,7 +52,7 @@ def convbnrelu(in_channels, out_channels, kernel, padding):
         BatchNorm2d(out_channels, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True),
         ReLU(inplace=True),
     )
-class CustomNet(nn.Module):
+class CustomUNet(nn.Module):
 
     def __init__(self, n_class,two_pow):
         super().__init__()
@@ -231,7 +231,7 @@ if __name__ == "__main__":
     two_pow = 4
     # k=4
 
-    model =  CustomNet(num_class,two_pow).to(device)
+    model =  CustomUNet(num_class,two_pow).to(device)
     print(model)
 
     model._kaiming_initialize_()
