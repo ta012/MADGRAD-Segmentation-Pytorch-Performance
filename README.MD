@@ -19,8 +19,7 @@
 
 
 ##### VOC2012 Segmentation Training 
-   Create a config.py 
-   with 
+
     -  SDG
         ~/anaconda3/envs/pytorch17_102/bin/python train.py SGD
     -  Adam
