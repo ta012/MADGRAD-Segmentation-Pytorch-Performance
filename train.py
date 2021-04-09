@@ -25,7 +25,6 @@ import glob
 ### custom imports
 
 import pascal
-from loss import dice_loss
 from custom_utils import sanity_check
 from metrics import eval_metrics
 import time
@@ -104,7 +103,7 @@ writer = SummaryWriter(args['tensorboard_logs_dir'])
 #### load the custom model(according to choice on maxpool)
 
 
-from CustomUNet import CustomUNet
+from customUNet import CustomUNet
 
 
 
@@ -249,11 +248,11 @@ def train_model(model, optimizer, scheduler,last_epoch, num_epochs,dataloaders):
 			### tensorboard updation
 
 			if phase == 'train':
-				print( {'lr':epoch_lr,'loss':epoch_loss,,'pixelAccuracy':epoch_pixel_accuracy})
-				writer.add_scalars('{}/trainloss'.format(run_id), {'lr':epoch_lr,'loss':epoch_loss,,'pixelAccuracy':epoch_pixel_accuracy}, epoch)			
+				print( {'lr':epoch_lr,'loss':epoch_loss,'pixelAccuracy':epoch_pixel_accuracy})
+				writer.add_scalars('{}/trainloss'.format(run_id), {'lr':epoch_lr,'loss':epoch_loss,'pixelAccuracy':epoch_pixel_accuracy}, epoch)			
 			elif phase == 'val':
-				print({'lr':epoch_lr,'loss':epoch_loss,,'pixelAccuracy':epoch_pixel_accuracy})
-				writer.add_scalars('{}/valloss'.format(run_id), {'lr':epoch_lr,'loss':epoch_loss,,'pixelAccuracy':epoch_pixel_accuracy}, epoch)
+				print({'lr':epoch_lr,'loss':epoch_loss,'pixelAccuracy':epoch_pixel_accuracy})
+				writer.add_scalars('{}/valloss'.format(run_id), {'lr':epoch_lr,'loss':epoch_loss,'pixelAccuracy':epoch_pixel_accuracy}, epoch)
 				writer.flush()
 
 		time_elapsed = time.time() - since
