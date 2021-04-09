@@ -200,12 +200,10 @@ def train_model(model, optimizer, scheduler,last_epoch, num_epochs,dataloaders):
 				total_labeled += num_labeled
 
 				# a = inter/(union+0.00001)
-				cumIOU += np.sum(inter/(union+1e-06))
 
 
 			epoch_loss = metrics['loss'] / epoch_samples
 
-			epoch_mean_iou =cumIOU/ epoch_samples
 
 			epoch_pixel_accuracy = correctPixels/ total_labeled
 
@@ -251,11 +249,11 @@ def train_model(model, optimizer, scheduler,last_epoch, num_epochs,dataloaders):
 			### tensorboard updation
 
 			if phase == 'train':
-				print( {'lr':epoch_lr,'loss':epoch_loss,'meanIOU':epoch_mean_iou,'pixelAccuracy':epoch_pixel_accuracy})
-				writer.add_scalars('{}/trainloss'.format(run_id), {'lr':epoch_lr,'loss':epoch_loss,'meanIOU':epoch_mean_iou,'pixelAccuracy':epoch_pixel_accuracy}, epoch)			
+				print( {'lr':epoch_lr,'loss':epoch_loss,,'pixelAccuracy':epoch_pixel_accuracy})
+				writer.add_scalars('{}/trainloss'.format(run_id), {'lr':epoch_lr,'loss':epoch_loss,,'pixelAccuracy':epoch_pixel_accuracy}, epoch)			
 			elif phase == 'val':
-				print({'lr':epoch_lr,'loss':epoch_loss,'meanIOU':epoch_mean_iou,'pixelAccuracy':epoch_pixel_accuracy})
-				writer.add_scalars('{}/valloss'.format(run_id), {'lr':epoch_lr,'loss':epoch_loss,'meanIOU':epoch_mean_iou,'pixelAccuracy':epoch_pixel_accuracy}, epoch)
+				print({'lr':epoch_lr,'loss':epoch_loss,,'pixelAccuracy':epoch_pixel_accuracy})
+				writer.add_scalars('{}/valloss'.format(run_id), {'lr':epoch_lr,'loss':epoch_loss,,'pixelAccuracy':epoch_pixel_accuracy}, epoch)
 				writer.flush()
 
 		time_elapsed = time.time() - since
